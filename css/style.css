@@ -1,0 +1,21 @@
+
+body {
+    text-align: center;
+}
+.icons {
+	display: flex;
+	flex-direction:row;
+}
+#hearts{
+	padding-left:300px;
+}
+
+#gems{
+	display: flex;
+	padding-left:150px;
+}
+.gem,.heart {	
+	width: 30px;
+	height: 50px;
+	margin-right:10px; 
+}
