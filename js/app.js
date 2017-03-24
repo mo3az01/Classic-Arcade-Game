@@ -4,6 +4,28 @@ var Gem = function(x,y,sprite){
     this.y = y;
     this.sprite = sprite;
 }
+// class Enemy
+var Enemy = function(x,y,s) {    
+    this.sprite = 'images/enemy-bug.png';
+    this.x = x;
+    this.y = y;
+    this.speed = s;
+};
+// Player class
+var Player = function(){
+    this.sprite = "images/char-boy.png";
+    this.x = 200;
+    this.y = 400;
+    this.dir ='';
+    this.move = 0;
+    this.life = 3;
+    this.lvl  = 1;
+    this.blueGem = 0;
+    this.greenGem = 0;
+    this.orangeGem = 0;
+}
+var player = new Player();
+// Gem functions and prototypes
 Gem.spirites = ['images/Gem Blue.png','images/Gem Green.png','images/Gem Orange.png'];
 Gem.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -41,13 +63,7 @@ Gem.prototype.checkCollisions = function(index){
         allGems.splice(index,1);
     }
 }
-// class Enemy
-var Enemy = function(x,y,s) {    
-    this.sprite = 'images/enemy-bug.png';
-    this.x = x;
-    this.y = y;
-    this.speed = s;
-};
+// Enemy functions and prototypes
 // enemies y positions
 Enemy.startHeights = [68,151,234];
 // all enimes in the game
@@ -85,20 +101,7 @@ initEnimes();
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-// Player class
-var Player = function(){
-    this.sprite = "images/char-boy.png";
-    this.x = 200;
-    this.y = 400;
-    this.dir ='';
-    this.move = 0;
-    this.life = 3;
-    this.lvl  = 1;
-    this.blueGem = 0;
-    this.greenGem = 0;
-    this.orangeGem = 0;
-}
-var player = new Player();
+// Player functions and prototypes
 // reset player positions after each level
 var ResetPlayerPos = function(){
     player.x = 200;            
